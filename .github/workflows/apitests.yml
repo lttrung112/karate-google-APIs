@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@v2.0.0
 
     - name: API tests
-      uses: lttrung112/karate-google-APIs@main
+      uses: lttrung112/karate-google-APIs@test01
       with:
         url: https://api.isevenapi.xyz/
         tests: |
