@@ -5,6 +5,7 @@ function() {
   // Make GitHub Action input variables available as Karata script variables
   var config = {
     url: java.lang.System.getenv('INPUT_URL'),
+    apiKey: 'AIzaSyCDcUmm1LO0yeRVqdPsxo2ku6-weisiWHk'
   };
 
   // These can be set in test (https://github.com/intuit/karate#configure)
