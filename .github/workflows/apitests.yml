@@ -1,0 +1,21 @@
+name: api tests
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2.0.0
+
+    - name: API tests
+      uses: erikbos/karate-action@main
+      with:
+        url: https://api.isevenapi.xyz/
+        tests: |
+          example-tests/even-numbers.feature
+          example-tests/odd-numbers.feature
+
