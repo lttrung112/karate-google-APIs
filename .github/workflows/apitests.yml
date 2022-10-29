@@ -17,7 +17,6 @@ jobs:
         url: https://maps.googleapis.com/maps/api/place/
         tests: |
           example-tests/even-numbers.feature
-          example-tests/odd-numbers.feature
 
     - name: Upload Test Reports
       uses: actions/upload-artifact@v2
