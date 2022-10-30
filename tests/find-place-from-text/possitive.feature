@@ -3,7 +3,7 @@ Feature: findplacefromtext
 Background:
     * url url
 
-Scenario Outline: find place from text with required parameters only
+Scenario Outline: findplacefromtext with required parameters only and existing result
 
 #    Given path 'findplacefromtext/json?input=Museum%20of%20Contemporary%20Art%20Australia&inputtype=textquery&fields=formatted_address%2Cname%2Crating%2Copening_hours%2Cgeometry&key=' + apiKey
     Given path 'findplacefromtext/json'
@@ -20,15 +20,29 @@ Scenario Outline: find place from text with required parameters only
 
     Examples:
     |input        | inputtype|
-#    |Ha Noi       | textquery|
-#    |abc          | textquery|
-#    |123          | textquery|
-#    |true         | textquery|
-#    |null         | textquery|
-#    |undefined    | textquery|
-#    |Name@country | textquery|
-    |+84987887663 | phonenumber|
+    |Ha Noi       | textquery|
+    |abc          | textquery|
+    |123          | textquery|
+    |true         | textquery|
+    |null         | textquery|
+    |undefined    | textquery|
+    |Name@country | textquery|
+    |+84987887666 | phonenumber|
 
+  Scenario Outline: findplacefromtext with required parameters only and not existing result
+    Given path 'findplacefromtext/json'
+    And param input = '<input>'
+    And param inputtype = '<inputtype>'
+    And param key = apiKey
+    When method GET
+    Then status 200
+    * match response.status == 'ZERO_RESULTS'
+    * match response.candidates.length == 0
+
+    Examples:
+      |input        | inputtype|
+      |123456789    | textquery|
+      |+84123456789 | phonenumber|
 
 #curl -L -X GET 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Ha+noi&inputtype=textquery&key=AIzaSyCDcUmm1LO0yeRVqdPsxo2ku6-weisiWHk'
 
