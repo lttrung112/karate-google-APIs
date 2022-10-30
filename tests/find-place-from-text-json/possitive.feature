@@ -35,6 +35,7 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
     And param key = apiKey
     When method GET
     Then status 200
+    * print "111111", response.candidates.length
     * Then assert response.candidates.length > 1
     * match response.status == 'OK'
 
