@@ -28,7 +28,7 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
     |Name@country | textquery|
     |+84987887666 | phonenumber|
 
-  Scenario Outline: findplacefromtext with required parameters only and existing list of result
+  Scenario Outline: findplacefromtext with required parameters only and existing result as a list
     Given path 'findplacefromtext/json'
     And param input = '<input>'
     And param inputtype = '<inputtype>'
@@ -36,7 +36,8 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
     When method GET
     Then status 200
     * print "111111", response.candidates.length
-    Then assert response.candidates.length > '1'
+#    Then assert response.candidates.length > '1'
+    * assert response.candidates.length > 1
     * match response.status == 'OK'
 
     Examples:
@@ -74,7 +75,7 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
         Then status 200
 
         Examples:
-            |input  |
-            |Ha Noi |
-            |abc    |
-            |123    |
+          |input        | inputtype| fields |
+          |Ha Noi       | textquery|
+          |+abc         | phonenumber|
+
