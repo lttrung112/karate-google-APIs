@@ -42,7 +42,7 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
 
     Examples:
       |input         | inputtype|
-      |district      | textquery|
+      |District      | textquery|
       |+842838200880 | phonenumber|
 
   Scenario Outline: findplacefromtext with required parameters only and not existing result
@@ -65,8 +65,8 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
     Given path 'findplacefromtext/json'
     And param input = '<input>'
     And param inputtype = '<inputtype>'
-#        And param fields = '<fields>'
-    And param fields = 'current_opening_hours,formatted_phone_number,international_phone_number,opening_hours,secondary_opening_hours,website'
+        And param fields = <fields'
+#    And param fields = 'current_opening_hours,formatted_phone_number,international_phone_number,opening_hours,secondary_opening_hours,website'
 #        And param fields = 'formatted_address,name,geometry'
     And param key = apiKey
     When method GET
@@ -74,7 +74,7 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
 
     Examples:
       |Scenario   |input        | inputtype| fields |
-      |Basic      |China        | textquery|current_opening_hours,formatted_phone_number,international_phone_number,opening_hours,secondary_opening_hours,website|
+      |Basic      |China        | textquery|'current_opening_hours,formatted_phone_number,international_phone_number,opening_hours,secondary_opening_hours,website'|
 #          |Contact    |Ha Noi       | textquery|
 #          |Atmosphere |+abc         | phonenumber|
 
