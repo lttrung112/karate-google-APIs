@@ -41,7 +41,7 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
 
     Examples:
       |input        | inputtype|
-      |123456789    | textquery|
+      |012aaa       | textquery|
       |+84123456789 | phonenumber|
 
 #curl -L -X GET 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Ha+noi&inputtype=textquery&key=AIzaSyCDcUmm1LO0yeRVqdPsxo2ku6-weisiWHk'
