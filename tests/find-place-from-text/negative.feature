@@ -1,4 +1,4 @@
-Feature: fetching even numbers
+Feature: findplacefromtext
 
 Background:
     * url url
@@ -14,3 +14,4 @@ Scenario: even number 2
     And param key = apiKey
     When method GET
     Then status 200
+

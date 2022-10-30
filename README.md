@@ -30,4 +30,4 @@ steps:
 
 # Example workflow
 
-See [example api test workflow](.github/workflows/apitests.yml) which runs two Karate feature tests from the [example-tests](example-tests) directory.
+See [example api test workflow](.github/workflows/apitests.yml) which runs two Karate feature tests from the [example-tests](tests) directory.
