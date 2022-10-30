@@ -61,24 +61,20 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
       |012aaa       | textquery|
       |+84123456789 | phonenumber|
 
-#curl -L -X GET 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Ha+noi&inputtype=textquery&key=AIzaSyCDcUmm1LO0yeRVqdPsxo2ku6-weisiWHk'
-
-#curl -L -X GET 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Name@country&inputtype=textquery&key=AIzaSyCDcUmm1LO0yeRVqdPsxo2ku6-weisiWHk'
   Scenario Outline: findplacefromtext with required parameters and optional parameters
-
-        Given path 'findplacefromtext/json'
-        And param input = '<input>'
-        And param inputtype = '<inputtype>'
+    Given path 'findplacefromtext/json'
+    And param input = '<input>'
+    And param inputtype = '<inputtype>'
 #        And param fields = '<fields>'
-        And param fields = 'current_opening_hours,formatted_phone_number,international_phone_number,opening_hours,secondary_opening_hours,website'
+    And param fields = 'current_opening_hours,formatted_phone_number,international_phone_number,opening_hours,secondary_opening_hours,website'
 #        And param fields = 'formatted_address,name,geometry'
-        And param key = apiKey
-        When method GET
-        Then status 200
+    And param key = apiKey
+    When method GET
+    Then status 200
 
-        Examples:
-          |Scenario   |input        | inputtype| fields |
-          |Basic      |Ha Noi       | textquery|current_opening_hours,formatted_phone_number,international_phone_number,opening_hours,secondary_opening_hours,website|
+    Examples:
+      |Scenario   |input        | inputtype| fields |
+      |Basic      |China        | textquery|current_opening_hours,formatted_phone_number,international_phone_number,opening_hours,secondary_opening_hours,website|
 #          |Contact    |Ha Noi       | textquery|
 #          |Atmosphere |+abc         | phonenumber|
 
