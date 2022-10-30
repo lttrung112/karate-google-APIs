@@ -17,7 +17,6 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
     * match response.status == 'OK'
     * match response.candidates[0].place_id == '#string'
 
-
     Examples:
     |input        | inputtype|
     |Ha Noi       | textquery|
@@ -29,6 +28,21 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
     |Name@country | textquery|
     |+84987887666 | phonenumber|
 
+  Scenario Outline: findplacefromtext with required parameters only and existing list of result
+    Given path 'findplacefromtext/json'
+    And param input = '<input>'
+    And param inputtype = '<inputtype>'
+    And param key = apiKey
+    When method GET
+    Then status 200
+    * match response.status == 'OK'
+    * match response.candidates.length > 1
+
+    Examples:
+      |input         | inputtype|
+      |district      | textquery|
+      |+842838200880 | phonenumber|
+
   Scenario Outline: findplacefromtext with required parameters only and not existing result
     Given path 'findplacefromtext/json'
     And param input = '<input>'
@@ -37,9 +51,8 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
     When method GET
     Then status 200
     * match response.status == 'ZERO_RESULTS'
-    * match response.candidates.length == '#notpresent'
+#    * match response.candidates.length == '#notpresent'
     * match response.candidates == '#[0]'
-#    And assert response.candidates == null
 
     Examples:
       |input        | inputtype|
