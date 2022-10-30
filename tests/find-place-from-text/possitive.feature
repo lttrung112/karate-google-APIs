@@ -38,6 +38,8 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
     Then status 200
     * match response.status == 'ZERO_RESULTS'
     * match response.candidates.length == '#notpresent'
+    * match response.candidates == '#[0]'
+#    And assert response.candidates == null
 
     Examples:
       |input        | inputtype|
