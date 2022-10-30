@@ -68,7 +68,7 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
 
         Given path 'findplacefromtext/json'
         And param input = '<input>'
-        And param inputtype = 'textquery'
+        And param inputtype = '<inputtype>'
         And param fields = '<fields>'
         And param key = apiKey
         When method GET
