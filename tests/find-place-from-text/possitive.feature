@@ -37,7 +37,7 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
     When method GET
     Then status 200
     * match response.status == 'ZERO_RESULTS'
-    * match response.candidates.length == 0
+    * match response.candidates.length == '#notpresent'
 
     Examples:
       |input        | inputtype|
