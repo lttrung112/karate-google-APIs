@@ -69,13 +69,14 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
         Given path 'findplacefromtext/json'
         And param input = '<input>'
         And param inputtype = 'textquery'
-        And param fields = 'formatted_address,name,geometry'
+        And param fields = '<fields>'
         And param key = apiKey
         When method GET
         Then status 200
 
         Examples:
-          |input        | inputtype| fields |
-          |Ha Noi       | textquery|
-          |+abc         | phonenumber|
+          |Scenario   |input        | inputtype| fields |
+          |Basic      |Ha Noi       | textquery|current_opening_hours,formatted_phone_number,international_phone_number,opening_hours,secondary_opening_hours,website|
+#          |Contact    |Ha Noi       | textquery|
+#          |Atmosphere |+abc         | phonenumber|
 
