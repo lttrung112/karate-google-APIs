@@ -1,6 +1,6 @@
 # karate-action
 
-[![api tests](https://github.com/erikbos/karate-action/actions/workflows/apitests.yml/badge.svg?branch=main)](https://github.com/erikbos/karate-action/actions/workflows/apitests.yml)
+[![api tests](https://github.com/lttrung112/karate-google-APIs/actions/workflows/apitests.yml/badge.svg?branch=test01)](https://github.com/lttrung112/karate-google-APIs/actions/workflows/apitests.yml)
 
 A GitHub Action to run [Karate](https://intuit.github.io/karate/) tests.
 
