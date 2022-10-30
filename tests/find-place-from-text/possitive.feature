@@ -32,7 +32,7 @@ Scenario Outline: find place from text with required parameters only
 
 #curl -L -X GET 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Ha+noi&inputtype=textquery&key=AIzaSyCDcUmm1LO0yeRVqdPsxo2ku6-weisiWHk'
 
-curl -L -X GET 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Name@country&inputtype=textquery&key=AIzaSyCDcUmm1LO0yeRVqdPsxo2ku6-weisiWHk'
+#curl -L -X GET 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Name@country&inputtype=textquery&key=AIzaSyCDcUmm1LO0yeRVqdPsxo2ku6-weisiWHk'
   Scenario Outline: findplacefromtext with required parameters and optional parameters
 
         Given path 'findplacefromtext/json'
