@@ -91,8 +91,8 @@ Background:
         * def errorResponse =
         """
         {
-           "candidates" : [],
            "error_message" : "Error while parsing 'fields' parameter: Unsupported field name 'aaa'. ",
+           "html_attributions" : [],
            "status" : "INVALID_REQUEST"
         }
         """
