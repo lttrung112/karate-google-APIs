@@ -2,7 +2,9 @@ Feature: Get Place Details
 
 Background:
     * url url
-    * def place = call read('classpath:tests/common/find-place.feature')
+    # There is an error in call to another feature file so temporarily I don't use it.
+    #    * def place = call read('classpath:tests/common/find-place.feature')
+    * def placeId = 'ChIJXx5qc016FTERvmL-4smwO7A'
 
     Scenario: Get Place Details with missing 'place_id' parameters
         Given path 'details/json'
@@ -22,7 +24,7 @@ Background:
 
     Scenario: Get Place Details with missing 'key' parameters
         Given path 'details/json'
-        And param place_id = place.place_id
+        And param place_id = placeId
         When method GET
         Then status 200
         * match response.status == 'REQUEST_DENIED'
@@ -31,7 +33,7 @@ Background:
 
     Scenario: Get Place Details  with invalid 'key'
         Given path 'details/json'
-        And param place_id = place.place_id
+        And param place_id = placeId
         And param key = '123456'
         When method GET
         Then status 200
@@ -41,7 +43,7 @@ Background:
 
     Scenario: Get Place Details  with invalid 'region' format
         Given path 'details/json'
-        And param place_id = place.place_id
+        And param place_id = placeId
         And param key = apiKey
         And param region = '123'
         When method GET
@@ -49,7 +51,7 @@ Background:
 
     Scenario: Get Place Details  with invalid 'language' format
         Given path 'details/json'
-        And param place_id = place.place_id
+        And param place_id = placeId
         And param key = apiKey
         And param language = '123'
         When method GET
@@ -57,7 +59,7 @@ Background:
 
     Scenario: Get Place Details  with invalid 'reviews_no_translations' format
         Given path 'details/json'
-        And param place_id = place.place_id
+        And param place_id = placeId
         And param key = apiKey
         And param reviews_no_translations = '123'
         When method GET
@@ -65,7 +67,7 @@ Background:
 
     Scenario: Get Place Details  with invalid 'reviews_sort' format
         Given path 'details/json'
-        And param place_id = place.place_id
+        And param place_id = placeId
         And param key = apiKey
         And param reviews_sort = '123'
         When method GET
@@ -73,7 +75,7 @@ Background:
 
     Scenario: Get Place Details with invalid 'fields' format
         Given path 'details/json'
-        And param place_id = place.place_id
+        And param place_id = placeId
         And param fields = 'place_id.formatted_address,geometry'
         And param key = apiKey
         When method GET
@@ -84,7 +86,7 @@ Background:
 
     Scenario: Get Place Details with invalid 'fields' value
         Given path 'details/json'
-        And param place_id = place.place_id
+        And param place_id = placeId
         And param fields = 'curbside_pickup,formatted_address,geometry'
         And param key = apiKey
         When method GET

@@ -2,17 +2,38 @@
 
 [![api tests](https://github.com/lttrung112/karate-google-APIs/actions/workflows/apitests.yml/badge.svg?branch=test01)](https://github.com/lttrung112/karate-google-APIs/actions/workflows/apitests.yml)
 
-A GitHub Action to run [Karate](https://intuit.github.io/karate/) tests.
+This is an example project for practice of FunnelBeam
 
-# Input parameters
+## Detailed specs
+Please create tests for some key parts of the following Google Places APIs:
+- Call Place Search (findplacefromtext)
+- Call Place Details (details)
 
-| Input   | Description                                                                           |
-| ------- | ------------------------------------------------------------------------------------- |
-| url     | URL to pass as script variable to a feature test |
-| test    | One or more files or directories containing Karate tests                              |
-| options | Any command line options to pass to Karate                                            |
+## Explaination
 
-# Example step
+#### This practice is developed based on [Karate](https://github.com/karatelabs/karate/)
+#### CI-CD is based on the Github Action
+#### Structure of test designed
+    .
+    ├── ...
+    ├── tests                           # Test files (alternatively `spec`)
+    │   ├── common                      # common tests for reuses purposes
+    │   ├── find-place-from-text-json   # findplacefromtext endpoint, this folder just for json output
+    │   ├── place-details-json          # place-details endpoint   this folder just for json output
+    │   └── ... 
+    └── ...
+
+
+#### How to use to test
+
+- Access [Github Action](https://github.com/lttrung112/karate-google-APIs/actions)
+- Select the workflow you want to test
+- Open jobs details to see the status of testing
+- Click rerun failed jobs or rerun all jobs if you want to rerun
+- To get the test report:
+  - Access the Summary -> Artifacts -> Test Reports
+
+#### Sample config steps
 
 ```yaml
 steps:
@@ -20,14 +41,21 @@ steps:
     uses: actions/checkout@v2.0.0
 
 - name: API tests
-    uses: erikbos/karate-action@main
+    uses: lttrung112/karate-google-APIs@test01
     with:
-      url: https://api.isevenapi.xyz/api/
+      url: https://maps.googleapis.com/maps/api/place/
       tests: |
-        example-tests/even-numbers.feature
-        example-tests/odd-numbers.feature
+        tests/find-place-from-text-json/*.feature
+        tests/place-details-json/*.feature
 ```
 
-# Example workflow
+#### Some un-complete works
+In this limitations of the times for this practice, there are some points I will enhance in the future:
+- Still not cover output as xml verification
+- In verifying of responses of each test case, need to check more details responses of all attributes
+- There are some limitations of test data, I already marked as question in the code.
+- The test jobs still failed because some errors
 
-See [example api test workflow](.github/workflows/apitests.yml) which runs two Karate feature tests from the [example-tests](tests) directory.
+#### References
+- [Karate - Github Action](https://github.com/erikbos/karate-action)
+- [Karate](https://github.com/karatelabs/karate/)

@@ -42,10 +42,10 @@ Scenario Outline: placeDetails with required parameters only
     And param place_id = placeId
 
     And param fields = <fields>
-    And param language = <language>
+    And param language = '<language>'
     And param region = <region>
-    And param reviews_no_translations  = <reviews_no_translations>
-    And param reviews_sort  = <reviews_sort>
+    And param reviews_no_translations  = '<reviews_no_translations>'
+    And param reviews_sort  = '<reviews_sort>'
     And param sessiontoken  = <sessiontoken>
 
     And param key = apiKey
@@ -53,9 +53,9 @@ Scenario Outline: placeDetails with required parameters only
     Then status 200
     * match response.status == 'OK'
     # @Todo Need Verify the output of this each parameters to check the responses
-    # Verify the response displayed includes fields and following the declared parameters: language, region, reviews_no_translations,reviews_sort
+    # Verify the response displayed includes fields (i.g: place_id,formatted_address,geometry,opening_hours/open_now,rating...) and following the declared parameters: language, region, reviews_no_translations,reviews_sort
     Examples:
       | Scenario                           | input   | inputtype | fields                                                              | language | region | reviews_no_translations | reviews_sort  | sessiontoken                          |
       | fields include Basic category      | Sai Gon | textquery | 'place_id,formatted_address,geometry'                               | ja       | 'uk'   | true                    | newest        | 'b2d6c707-43a5-4eeb-aae1-75ae590dbf83 |
-      | fields include Contact category    | Vincom  | textquery | 'place_id,formatted_address,geometry,opening_hours/open_now'        | vi       | 'cn'   | false                   | most_relevant | '12345'                               |
+      | fields include Contact category    | Vincom  | textquery | 'place_id,formatted_phone_number,geometry,opening_hours/open_now'   | vi       | 'cn'   | false                   | most_relevant | '12345'                               |
       | fields include Atmosphere category | Big C   | textquery | 'place_id,formatted_address,geometry,opening_hours/open_now,rating' | en       | 'vn'   | true                    | newest        | 'abcdef'                              |
