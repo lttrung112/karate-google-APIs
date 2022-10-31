@@ -1,4 +1,4 @@
-Feature: findplacefromtext
+Feature: Find place from text
 
 Background:
     * url url
@@ -36,7 +36,7 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
 
     Examples:
       | input         | inputtype   |
-#      |District      | textquery|
+#      |District      | textquery|  |
       | +842838200880 | phonenumber |
 
   Scenario Outline: findplacefromtext with required parameters only and not existing result
@@ -55,21 +55,21 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
       | 012aaa       | textquery   |
       | +84123456789 | phonenumber |
 
-  Scenario Outline: findplacefromtext with required parameters and optional parameters as <Scenario>
+  Scenario Outline: findplacefromtext with required and optional parameters as <Scenario>
     Given path 'findplacefromtext/json'
     And param input = '<input>'
     And param inputtype = '<inputtype>'
     And param fields = <fields>
-    And param language = <fields>
+    And param language = <language>
     And param locationbias = <locationbias>
     And param key = apiKey
     When method GET
     Then status 200
     # @Todo Need Verify the output of this each parameters to check the responses
+    # Verify the response displayed includes fields and following the declared language
 
     Examples:
-      | Scenario                           | input   | inputtype | fields                                                              | language | locationbias                      |
-      | fields include Basic category      | Sai Gon | textquery | 'place_id,formatted_address,geometry'                               | ja       | circle:16000@41.761898,-72.674596 |
-      | fields include Contact category    | Vincom  | textquery | 'place_id,formatted_address,geometry,opening_hours/open_now'        | vi       | circle:16000@41.761898,-72.674596 |
-      | fields include Atmosphere category | Big C   | textquery | 'place_id,formatted_address,geometry,opening_hours/open_now,rating' | en       | circle:16000@41.761898,-72.674596 |
-
+      | Scenario                           | input   | inputtype | fields                                                              | language | locationbias                                |
+      | fields include Basic category      | Sai Gon | textquery | 'place_id,formatted_address,geometry'                               | ja       | 'circle%3A2000%4047.6918452%2C-122.2226413' |
+      | fields include Contact category    | Vincom  | textquery | 'place_id,formatted_address,geometry,opening_hours/open_now'        | vi       | 'circle%3A2000%4047.6918452%2C-122.2226413' |
+      | fields include Atmosphere category | Big C   | textquery | 'place_id,formatted_address,geometry,opening_hours/open_now,rating' | en       | 'circle%3A2000%4047.6918452%2C-122.2226413' |
