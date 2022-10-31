@@ -16,7 +16,8 @@ jobs:
       with:
         url: https://maps.googleapis.com/maps/api/place/
         tests: |
-          tests/**/*.feature
+          tests/find-place-from-text-json/*.feature
+          tests/place-details/*.feature
 
     - name: Upload Test Reports
       uses: actions/upload-artifact@v2

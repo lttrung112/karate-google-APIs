@@ -2,7 +2,7 @@ Feature: Get Place Details
 
 Background:
     * url url
-    * def place = call read('classpath:common/find-place.feature')
+    * def place = call read('classpath:tests/common/find-place.feature')
 
     Scenario: Get Place Details with missing 'place_id' parameters
         Given path 'details/json'
