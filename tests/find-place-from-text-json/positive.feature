@@ -21,7 +21,6 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
       | true         | textquery   |
       | null         | textquery   |
       | undefined    | textquery   |
-      | Name@country | textquery   |
       | +84987887666 | phonenumber |
 
   Scenario Outline: findplacefromtext with required parameters only and existing result as a list
@@ -60,7 +59,7 @@ Scenario Outline: findplacefromtext with required parameters only and existing r
     And param input = '<input>'
     And param inputtype = '<inputtype>'
     And param fields = <fields>
-    And param language = <language>
+    And param language = '<language>'
     And param locationbias = <locationbias>
     And param key = apiKey
     When method GET

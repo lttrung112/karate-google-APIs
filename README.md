@@ -49,7 +49,7 @@ steps:
         tests/place-details-json/*.feature
 ```
 
-#### Some un-complete works
+#### Some un-completed works
 In this limitations of the times for this practice, there are some points I will enhance in the future:
 - Still not cover output as xml verification
 - In verifying of responses of each test case, need to check more details responses of all attributes

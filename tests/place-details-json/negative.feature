@@ -12,6 +12,7 @@ Background:
         When method GET
         Then status 200
         * match response.status == 'INVALID_REQUEST'
+        * match response.error_message == 'Missing the placeid or reference parameter.'
 
     Scenario: Get Place Details with not existing 'place_id' parameters
         Given path 'details/json'
@@ -20,7 +21,6 @@ Background:
         When method GET
         Then status 200
         * match response.status == 'INVALID_REQUEST'
-        * match response.error_message == 'Missing the placeid or reference parameter.'
 
     Scenario: Get Place Details with missing 'key' parameters
         Given path 'details/json'
@@ -29,7 +29,6 @@ Background:
         Then status 200
         * match response.status == 'REQUEST_DENIED'
         * match response.error_message == 'You must use an API key to authenticate each request to Google Maps Platform APIs. For additional information, please refer to http://g.co/dev/maps-no-account'
-        * match response.candidates == '#[0]'
 
     Scenario: Get Place Details  with invalid 'key'
         Given path 'details/json'
@@ -39,7 +38,6 @@ Background:
         Then status 200
         * match response.status == 'REQUEST_DENIED'
         * match response.error_message == 'The provided API key is invalid.'
-        * match response.candidates == '#[0]'
 
     Scenario: Get Place Details  with invalid 'region' format
         Given path 'details/json'
@@ -81,13 +79,12 @@ Background:
         When method GET
         Then status 200
         * match response.status == 'INVALID_REQUEST'
-        * match response.error_message == 'Error while parsing 'fields' parameter: Unexpected character '.'. '
-        * match response.candidates == '#[0]'
+        * match response.error_message == "Error while parsing 'fields' parameter: Unexpected character '.'. "
 
     Scenario: Get Place Details with invalid 'fields' value
         Given path 'details/json'
         And param place_id = placeId
-        And param fields = 'curbside_pickup,formatted_address,geometry'
+        And param fields = 'aaa,formatted_address,geometry'
         And param key = apiKey
         When method GET
         Then status 200
@@ -95,7 +92,7 @@ Background:
         """
         {
            "candidates" : [],
-           "error_message" : "Error while parsing 'fields' parameter: Unsupported field name 'curbside_pickup'. ",
+           "error_message" : "Error while parsing 'fields' parameter: Unsupported field name 'aaa'. ",
            "status" : "INVALID_REQUEST"
         }
         """
