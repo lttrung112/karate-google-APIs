@@ -40,14 +40,12 @@ Scenario Outline: placeDetails with required parameters only
     # Place details
     Given path 'details/json'
     And param place_id = placeId
-
     And param fields = <fields>
     And param language = '<language>'
     And param region = <region>
-    And param reviews_no_translations  = <reviews_no_translations>
+#    And param reviews_no_translations  = <reviews_no_translations>
     And param reviews_sort  = '<reviews_sort>'
     And param sessiontoken  = <sessiontoken>
-
     And param key = apiKey
     When method GET
     Then status 200
