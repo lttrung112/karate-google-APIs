@@ -16,7 +16,7 @@ Please create tests for some key parts of the following Google Places APIs:
 #### Structure of test designed
     .
     ├── ...
-    ├── tests                           # Test files (alternatively `spec`)
+    ├── tests                           # Test files (alternatively `spec` or `feature`)
     │   ├── common                      # common tests for reuses purposes
     │   ├── find-place-from-text-json   # findplacefromtext endpoint, this folder just for json output
     │   ├── place-details-json          # place-details endpoint   this folder just for json output
@@ -54,8 +54,8 @@ In this limitations of the times for this practice, there are some points I will
 - Still not cover output as xml verification
 - In verifying of responses of each test case, need to check more details responses of all attributes
 - There are some limitations of test data, I already marked as question in the code.
-- The test jobs still failed because some errors
-
+- The test jobs still have some failed case because some errors in expected results.
+- Need to optimize configuration of karate framework such as running in parallel mode, waiting for stable results.
 #### References
 - [Karate - Github Action](https://github.com/erikbos/karate-action)
 - [Karate](https://github.com/karatelabs/karate/)

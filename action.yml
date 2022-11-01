@@ -1,6 +1,5 @@
-name: 'Karate testing'
-description: 'Run Karate tests'
-author: 'Erik Bos'
+name: 'API testing using'
+description: 'Run API tests for Google APIs using Karate Framework and GitHub Action for CI-CD'
 inputs:
   url:
     description: "URL to pass as script variable to test."
