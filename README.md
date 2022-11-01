@@ -1,6 +1,6 @@
 # API-Testing
 
-[![api tests](https://github.com/lttrung112/karate-google-APIs/actions/workflows/apitests.yml/badge.svg?branch=test01)](https://github.com/lttrung112/karate-google-APIs/actions/workflows/apitests.yml)
+[![api tests](https://github.com/lttrung112/karate-google-APIs/actions/workflows/apitests.yml/badge.svg?branch=main)](https://github.com/lttrung112/karate-google-APIs/actions/workflows/apitests.yml)
 
 This is an example project for practice of FunnelBeam
 
@@ -41,7 +41,7 @@ steps:
     uses: actions/checkout@v2.0.0
 
 - name: API tests
-    uses: lttrung112/karate-google-APIs@test01
+    uses: lttrung112/karate-google-APIs@main
     with:
       url: https://maps.googleapis.com/maps/api/place/
       tests: |
