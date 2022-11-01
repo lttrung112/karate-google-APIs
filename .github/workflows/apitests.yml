@@ -1,0 +1,30 @@
+name: api tests
+
+on:
+  - push
+#  - pull_request
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2.0.0
+
+    - name: API tests
+      uses: lttrung112/karate-google-APIs@test01
+      with:
+        url: https://maps.googleapis.com/maps/api/place/
+        tests: |
+          tests/find-place-from-text-json/*.feature
+          tests/place-details-json/*.feature
+
+    - name: Upload Test Reports
+      uses: actions/upload-artifact@v2
+      if: ${{ always() }}
+      with:
+        name: Test Reports
+        path: |
+              ./target/karate-reports/
+              ./target/karate.log      
+
