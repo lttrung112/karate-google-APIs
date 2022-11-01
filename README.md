@@ -24,14 +24,15 @@ Please create tests for some key parts of the following Google Places APIs:
     └── ...
 
 
-#### How to use to test
+#### How to use the CI test Jobs
 
 - Access [Github Action](https://github.com/lttrung112/karate-google-APIs/actions)
 - Select the workflow you want to test
 - Open jobs details to see the status of testing
-- Click rerun failed jobs or rerun all jobs if you want to rerun
+- Click "rerun failed jobs" or "rerun all jobs" if you want to rerun
 - To get the test report:
   - Access the Summary -> Artifacts -> Test Reports
+- After we push a commit or merge pull request, the job will run automatically.
 
 #### Sample config steps
 
